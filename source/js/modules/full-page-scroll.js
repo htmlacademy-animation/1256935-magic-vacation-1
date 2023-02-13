@@ -26,6 +26,8 @@ export default class FullPageScroll {
 
     window.addEventListener(`popstate`, this.onUrlHashChengedHandler);
 
+    window.addEventListener(`load`, this.contentLoadedHandler);
+
     this.onUrlHashChanged();
   }
 
@@ -53,6 +55,10 @@ export default class FullPageScroll {
     );
     this.activeScreen = newIndex < 0 ? 0 : newIndex;
     this.changePageDisplay();
+  }
+
+  contentLoadedHandler() {
+    document.body.classList.add(`dom_loaded`);
   }
 
   changePageDisplay() {
