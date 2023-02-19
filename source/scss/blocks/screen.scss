@@ -37,18 +37,27 @@
   right: 0;
   z-index: 1;
 }
-
+.active .screen__footer {
+  bottom: 0;
+}
 .screen__footer {
   position: absolute;
   bottom: -100%;
   left: 0;
   right: 0;
+
   color: $c-dark;
   background-color: $c-light;
   z-index: 1;
-  transition: bottom 0.6s cubic-bezier(0, 0.91, 0.9, 0.95);
+  transition: bottom 0.5s cubic-bezier(0, 0.91, 0.9, 0.95);
 
-  .active:not(.screen--hidden) & {
+  // .dom-loaded .screen__footer {
+  //   bottom: 0;
+  // }
+  .screen--hidden & {
+    bottom: -100%;
+  }
+  .dom_loaded .active:not(.screen--hidden) & {
     bottom: 0;
   }
 
