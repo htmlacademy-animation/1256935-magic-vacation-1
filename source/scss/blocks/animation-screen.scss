@@ -22,3 +22,21 @@
     }
   }
 }
+
+.animated_text > span {
+  padding-top: 2rem;
+  margin-top: -2rem;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.animated_text > span > span {
+  display: inline-block;
+  transform: translate3d(0, 120%, 0);
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.14, 0.57, 0.32, 0.9);
+
+  .dom_loaded .active & {
+    transform: translate3d(0, 0, 0);
+  }
+}

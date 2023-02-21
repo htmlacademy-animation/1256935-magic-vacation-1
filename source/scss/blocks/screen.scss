@@ -37,15 +37,29 @@
   right: 0;
   z-index: 1;
 }
-
+.active .screen__footer {
+  bottom: 0;
+}
 .screen__footer {
   position: absolute;
-  bottom: 0;
+  bottom: -100%;
   left: 0;
   right: 0;
+
   color: $c-dark;
   background-color: $c-light;
   z-index: 1;
+  transition: bottom 0.5s cubic-bezier(0, 0.91, 0.9, 0.95);
+
+  // .dom-loaded .screen__footer {
+  //   bottom: 0;
+  // }
+  .screen--hidden & {
+    bottom: -100%;
+  }
+  .dom_loaded .active:not(.screen--hidden) & {
+    bottom: 0;
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     width: 3.5rem;
@@ -205,6 +219,7 @@
   text-align: center;
   font-size: 1.2rem;
   line-height: 1.2;
+  // transform: translateY(100%);
 
   @media (min-width: $stop-scaling) {
     padding: 8px 0;
@@ -290,7 +305,8 @@
 
 .screen--story {
   background-color: $c-dark;
-  background-image: url("../img/slide1.jpg"), url("../img/slide2.jpg"), url("../img/slide3.jpg"), url("../img/slide4.jpg");
+  background-image: url("../img/slide1.jpg"), url("../img/slide2.jpg"),
+    url("../img/slide3.jpg"), url("../img/slide4.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
